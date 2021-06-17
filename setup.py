@@ -8,8 +8,6 @@ board = ["-", "-", "-",
          "-", "-", "-",
          "-", "-", "-"]
 
-players = {}
-
 
 def display_board():
     print(board[0] + " | " + board[1] + " | " + board[2])
@@ -23,7 +21,7 @@ def display_board_layout():
     print(board_layout[6] + " | " + board_layout[7] + " | " + board_layout[8])
 
 
-def instructions():
+def get_players():
     global players
     print("The numbers in the board layout below will be used to play the game")
     display_board_layout()
@@ -33,3 +31,4 @@ def instructions():
     players = {"X": player1,
                "O": player2}
     return players
+

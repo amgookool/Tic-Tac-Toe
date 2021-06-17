@@ -1,27 +1,20 @@
 from setup import *
 
-is_gameGoing = True
+is_gameGoing = True # boolean checker to check if the game should continue after checks on the table 
 
-winner = None
+winner = None # defining a global winner variable to store the winer of the game 
 
-current_player = "X"
+players = {} 
+
+current_player = "X" # defining the starting player of the game (player that makes the first move)
+
 # End Global
 
 
-def play_game(players):
-    while is_gameGoing == True:
-        # allow player to make move
-        handle_turn(current_player)
-        # check to see if game should end
-        check_if_gameOver()
-        # if false in prev func...switch to next player
-        flip_Player()
-    if winner == "X" or winner == "O":
-        print(players.get(winner) + " Won!")
-    elif winner == None:
-        print("it's a tie!")
 
 
+# This function handles the input of a player
+# it checks the integer value and checks if its valid for the board numbers
 def handle_turn(current_player):
     print(current_player + "'s turn")
     position = input("Choose a number from 1-9: ")
@@ -88,7 +81,6 @@ def check_diagonal_winner():
         return board[0]
     elif dia_2:
         return board[6]
-    return
 
 
 def check_row_winner():
@@ -104,8 +96,6 @@ def check_row_winner():
         return board[3]
     elif row_3:
         return board[6]
-    return
-
 
 def check_column_winner():
     global is_gameGoing
@@ -120,4 +110,19 @@ def check_column_winner():
         return board[1]
     elif col_3:
         return board[2]
-    return
+
+
+#General game functionality
+def play_game(players):
+    while is_gameGoing == True:
+        # allow player to make move
+        handle_turn(current_player)
+        # check to see if game should end
+        check_if_gameOver()
+        # if false in prev func...switch to next player
+        flip_Player()
+    print(winner)
+    if winner == "X" or winner == "O":
+        print(players[winner]+ " Won!")
+    elif winner == None:
+        print("it's a tie!")
