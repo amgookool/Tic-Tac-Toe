@@ -18,7 +18,6 @@ def display_board(_board = type(list)):
     print(_board[3] + ' | ' + _board[4] + ' | ' + _board[5])
     print(_board[6] + ' | ' + _board[7] + ' | ' + _board[8])
 
-
 # Function used to define the instructions for the game
 def instructions():
     info_board = ['1', '2', '3',
@@ -33,8 +32,6 @@ def get_players():
     player1 = input("Please enter the name of Player 1: ")
     player2 = input("\nPlease enter the name of Player 2: ")
     return {'X' : player1, 'O' : player2}
-
-
 
 # Function that defines the move a player makes on his/her turn
 # The input parameter of this function represents the 'X' or 'O' player 
@@ -54,7 +51,6 @@ def turn_handler(player):
         display_board(board)
         print('\n')
 
-
 # Function that switches the player after a successful turn 
 # using the current_player global variable...
 # if the current_player is 'X' then switch the current player to 'O'
@@ -65,7 +61,6 @@ def flip_player():
         current_player = 'O'
     elif current_player == 'O':
         current_player = 'X'
-
 
 # function that check the board to see if a user wins
 def check_winner():
@@ -83,7 +78,7 @@ def check_winner():
     else:
         winner = None
 
-
+# Function that checks all rows on the tic-tac-toe table for a win condition 
 def check_row():
     global is_GameGoing
     # check if entries in row 1,2,3 matches resepectively and does not contain an empty space('-')
@@ -102,7 +97,8 @@ def check_row():
         return board[3]
     if row3:
         return board[6]
-    
+
+# Function that checks all the columns on the tic-tac-toe table for a win condition
 def check_column():
     global is_GameGoing
     # check if entries in coloumns 1,2,3 matches respectively and does not contain any empty space
@@ -120,6 +116,7 @@ def check_column():
     if col3:
         return board[2]
 
+# Function that checks all the diagonals on the tic-tac-toe table for a win condition
 def check_diagonals():
     global is_GameGoing
     # check if entries in diagnals 1 and 2 matches and does not contain any empty spaces ('-')
@@ -142,7 +139,6 @@ def check_tie():
     if '-' not in board:
         is_GameGoing = False
 
-
 # Fucntion which defines the gameplay of tic-tac-toe
 def play_game(players):
     display_board(board)
@@ -156,7 +152,6 @@ def play_game(players):
         print(f"\n{players.get(winner)} won!")
     elif winner == None:
         print("It's a tie!")
-
 
 # Function that defines the execution of the overall Tic-Tac-Toe Application 
 def run_main():
@@ -186,7 +181,5 @@ def run_main():
         run_main()
     print('game is now ending')
     exit()
-
-
 
 run_main()
