@@ -142,10 +142,6 @@ def check_tie():
     if '-' not in board:
         is_GameGoing = False
 
-# Functions that does all checks to determine if game should continue 
-def check_GameOver():
-    pass
-
 
 # Fucntion which defines the gameplay of tic-tac-toe
 def play_game(players):
@@ -154,7 +150,12 @@ def play_game(players):
     while is_GameGoing:
         turn_handler(current_player)
         check_winner()
+        check_tie()
         flip_player()
+    if winner == 'X' or winner == 'O':
+        print(f"\n{players.get(winner)} won!")
+    elif winner == None:
+        print("It's a tie!")
 
 
 # Function that defines the execution of the overall Tic-Tac-Toe Application 
@@ -169,7 +170,20 @@ def run_main():
         if is_playAgain == 'n':
             break
         else:
+            global board
+            global is_GameGoing
+            is_GameGoing = True
+            board = ['-', '-', '-',
+                     '-', '-', '-',
+                     '-', '-', '-']
             play_game(players)
+    is_newPlayers = input("Play game with new players? (y/n)")
+    while is_newPlayers == 'y':
+        is_GameGoing = True
+        board = ['-', '-', '-',
+                 '-', '-', '-',
+                 '-', '-', '-']
+        run_main()
     print('game is now ending')
     exit()
 
