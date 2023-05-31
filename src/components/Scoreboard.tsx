@@ -9,19 +9,19 @@ type scores = {
 
 const Scoreboard = (scoreboard: scores) => {
   return (
-    <div className="flex items-center">
-      <div className="flex-col items-center content-center justify-center">
-        <Scorecard
-          name={scoreboard.xPlayer.name}
-          symbol={scoreboard.xPlayer.symbol}
-          score={scoreboard.xPlayer.score}
-        />
-        {/* <Scorecard
-          name={scoreboard.oPlayer.name}
-          symbol={scoreboard.oPlayer.symbol}
-          score={scoreboard.oPlayer.score}
-        /> */}
-      </div>
+    <div className="flex flex-col items-center space-y-6">
+      <Scorecard
+        name={scoreboard.xPlayer.name}
+        symbol={scoreboard.xPlayer.symbol}
+        score={scoreboard.xPlayer.score}
+      />
+
+      <Scorecard
+        name={scoreboard.oPlayer.name}
+        symbol={scoreboard.oPlayer.symbol}
+        score={scoreboard.oPlayer.score}
+      />
+
       {/* <span className="container bg-purple-700 h-full w-full text-center p-2">
         {scoreboard.tieScore}
       </span> */}

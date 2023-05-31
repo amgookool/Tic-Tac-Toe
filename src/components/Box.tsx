@@ -10,6 +10,7 @@ const Box = ({ value, onClick }: BoxProps) => {
   return (
     <button
       className={`container w-24 h-24 m-3 rounded-xl border-collapse shadow-2xl bg-slate-900 ${playerColorStyle}`}
+      title={`Box-${value}`}
       onClick={onClick}
     >
       <span className="h-full w-full text-7xl justify-self-center">
